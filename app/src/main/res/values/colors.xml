@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Space background -->
+    <color name="space_black">#05060F</color>
+    <color name="space_deep">#0A0E1F</color>
+    <color name="space_navy">#10163A</color>
+
+    <!-- Neon accents -->
+    <color name="neon_blue">#4CC9FF</color>
+    <color name="neon_blue_dim">#2E7FB8</color>
+    <color name="neon_purple">#A46BFF</color>
+    <color name="neon_purple_dim">#6A46B0</color>
+    <color name="neon_magenta">#FF4CE0</color>
+
+    <!-- Glass surfaces -->
+    <color name="glass_fill">#26FFFFFF</color>
+    <color name="glass_fill_strong">#33FFFFFF</color>
+    <color name="glass_stroke">#40FFFFFF</color>
+    <color name="glass_highlight">#66FFFFFF</color>
+
+    <!-- Status -->
+    <color name="status_normal">#4CFFB3</color>
+    <color name="status_warm">#FFD24C</color>
+    <color name="status_hot">#FF9A4C</color>
+    <color name="status_critical">#FF4C4C</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#B3C4D6E6</color>
+    <color name="text_muted">#66C4D6E6</color>
+</resources>

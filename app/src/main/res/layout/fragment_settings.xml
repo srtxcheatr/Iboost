@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_settings"
+            android:textColor="@color/text_primary"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Overlay permission -->
+        <LinearLayout
+            style="@style/GlassCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView android:text="Floating HUD overlay" android:textColor="@color/text_primary" android:textSize="15sp" android:textStyle="bold"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="4dp" />
+                <TextView android:id="@+id/overlayStatusText" android:text="Permission required" android:textColor="@color/text_muted" android:textSize="12sp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/overlayPermissionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_track"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="8dp"
+                android:text="Grant"
+                android:textColor="@color/neon_blue"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+        <!-- Overlay start/stop -->
+        <LinearLayout
+            style="@style/GlassCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Show HUD while gaming"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Switch
+                android:id="@+id/overlaySwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Notification policy access -->
+        <LinearLayout
+            style="@style/GlassCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView android:text="Quiet notifications during boost" android:textColor="@color/text_primary" android:textSize="15sp" android:textStyle="bold"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="4dp" />
+                <TextView android:id="@+id/dndStatusText" android:text="Permission required" android:textColor="@color/text_muted" android:textSize="12sp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/dndPermissionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_track"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="8dp"
+                android:text="Grant"
+                android:textColor="@color/neon_blue"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+        <!-- Honesty note -->
+        <LinearLayout
+            style="@style/GlassCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="12dp">
+
+            <TextView style="@style/StatLabel" android:text="What this app can and can't do" android:layout_marginBottom="10dp" />
+            <TextView android:textColor="@color/text_secondary" android:textSize="12.5sp" android:lineSpacingExtra="5dp"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="• CPU, RAM, battery, and thermal readings are all real, read from the OS.\n• GPU usage and CPU temperature are shown as N/A on devices that don't expose them — never estimated.\n• Boost mode uses real Android APIs (Do Not Disturb, GameManager) and cannot change another app's CPU/GPU clocks — no non-root app can.\n• Suzuki Setup sensitivity is a saved profile for your own reference, not a hardware modification.\n• The overlay can't show real FPS for other apps without root/ADB access." />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/versionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="iBoost X"
+            android:textColor="@color/text_muted"
+            android:textSize="12sp"
+            android:gravity="center" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

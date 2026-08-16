@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_glass_card"
+    android:padding="12dp"
+    android:minWidth="150dp">
+
+    <TextView
+        android:id="@+id/hudCpu"
+        android:textColor="@color/neon_blue"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CPU: —%" />
+
+    <TextView
+        android:id="@+id/hudRam"
+        android:textColor="@color/neon_purple"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="RAM: —%" />
+
+    <TextView
+        android:id="@+id/hudBattery"
+        android:textColor="@color/status_normal"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="BATT: —%" />
+
+    <TextView
+        android:id="@+id/hudTemp"
+        android:textColor="@color/status_warm"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="TEMP: —°C" />
+
+    <TextView
+        android:id="@+id/hudFps"
+        android:textColor="@color/text_muted"
+        android:textSize="10sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="FPS: N/A" />
+
+</LinearLayout>

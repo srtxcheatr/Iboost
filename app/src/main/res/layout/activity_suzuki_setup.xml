@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_space"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="32dp"
+    android:paddingBottom="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suzuki Setup"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/stepIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Step 1 of 4 — Choose game"
+        android:textColor="@color/text_muted"
+        android:textSize="13sp"
+        android:layout_marginBottom="20dp" />
+
+    <ViewFlipper
+        android:id="@+id/stepFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Step 1: choose game -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/gameListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <!-- Step 2: sensitivity mode preset -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/GlassCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView style="@style/StatLabel" android:text="Selected game" android:layout_marginBottom="4dp" />
+                <TextView android:id="@+id/step2GameName" android:textColor="@color/text_primary" android:textStyle="bold" android:textSize="16sp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" android:text="—" android:layout_marginBottom="16dp" />
+
+                <RadioGroup android:id="@+id/sensitivityModeGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton android:id="@+id/modePrecision" android:text="Precision (100% / 100%)" android:textColor="@color/text_primary" android:buttonTint="@color/neon_blue" android:layout_marginBottom="10dp" />
+                    <RadioButton android:id="@+id/modeBalanced" android:text="Balanced (150% / 150%)" android:textColor="@color/text_primary" android:buttonTint="@color/neon_blue" android:layout_marginBottom="10dp" android:checked="true" />
+                    <RadioButton android:id="@+id/modeRapid" android:text="Rapid (250% / 250%)" android:textColor="@color/text_primary" android:buttonTint="@color/neon_blue" android:layout_marginBottom="10dp" />
+                    <RadioButton android:id="@+id/modeCustom" android:text="Custom (fine-tune next step)" android:textColor="@color/text_primary" android:buttonTint="@color/neon_blue" />
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Step 3: sensitivity sliders + control layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/GlassCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="14dp">
+
+                <TextView style="@style/StatLabel" android:text="Sensitivity X" android:layout_marginBottom="4dp" />
+                <TextView android:id="@+id/sensXValue" android:textColor="@color/neon_blue" android:textStyle="bold" android:textSize="18sp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="150%" android:layout_marginBottom="6dp" />
+                <SeekBar android:id="@+id/sensXSeekBar" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:max="400" android:progress="150" android:progressTint="@color/neon_blue" android:thumbTint="@color/neon_blue" />
+
+                <TextView style="@style/StatLabel" android:text="Sensitivity Y" android:layout_marginTop="16dp" android:layout_marginBottom="4dp" />
+                <TextView android:id="@+id/sensYValue" android:textColor="@color/neon_purple" android:textStyle="bold" android:textSize="18sp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="150%" android:layout_marginBottom="6dp" />
+                <SeekBar android:id="@+id/sensYSeekBar" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:max="400" android:progress="150" android:progressTint="@color/neon_purple" android:thumbTint="@color/neon_purple" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/GlassCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView style="@style/StatLabel" android:text="Control layout" android:layout_marginBottom="10dp" />
+                <RadioGroup android:id="@+id/controlLayoutGroup" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <RadioButton android:id="@+id/layoutDefault" android:text="Default grip" android:textColor="@color/text_primary" android:buttonTint="@color/neon_purple" android:checked="true" android:layout_marginBottom="8dp" />
+                    <RadioButton android:id="@+id/layoutClaw" android:text="Claw grip" android:textColor="@color/text_primary" android:buttonTint="@color/neon_purple" android:layout_marginBottom="8dp" />
+                    <RadioButton android:id="@+id/layoutTwoThumb" android:text="Two-thumb" android:textColor="@color/text_primary" android:buttonTint="@color/neon_purple" />
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Step 4: review + save -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/GlassCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView style="@style/StatLabel" android:text="Profile summary" android:layout_marginBottom="12dp" />
+                <TextView android:id="@+id/reviewText" android:textColor="@color/text_primary" android:textSize="14sp" android:lineSpacingExtra="6dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" android:text="—" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="Saved as a profile only. iBoost X cannot and does not modify your device's real touch hardware sensitivity — this JSON profile is a reference you configure and recall per game."
+                android:textColor="@color/text_muted"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+    </ViewFlipper>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/backButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="52dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_pill_track"
+            android:gravity="center"
+            android:text="Back"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/nextButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="52dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_boost_button"
+            android:gravity="center"
+            android:text="Next"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+
+</LinearLayout>

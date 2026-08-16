@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/app"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:fillViewport="true"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/app_name"
+                android:textColor="@color/text_primary"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/thermalChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_pill_track"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp">
+
+                <View
+                    android:id="@+id/thermalDot"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/dot_status" />
+
+                <TextView
+                    android:id="@+id/thermalStatusText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NORMAL"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Stat grid: CPU / RAM -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:id="@+id/cardCpu"
+                style="@style/GlassCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:orientation="vertical">
+
+                <ImageView android:layout_width="22dp" android:layout_height="22dp"
+                    android:src="@drawable/ic_cpu" app:tint="@color/neon_blue"
+                    android:layout_marginBottom="10dp" />
+                <TextView style="@style/StatLabel" android:text="CPU" />
+                <TextView android:id="@+id/cpuValue" style="@style/StatValue" android:text="—%" android:layout_marginTop="2dp" />
+                <TextView android:id="@+id/cpuCores" style="@style/StatLabel" android:text="" android:layout_marginTop="4dp" android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cardRam"
+                style="@style/GlassCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:orientation="vertical">
+
+                <ImageView android:layout_width="22dp" android:layout_height="22dp"
+                    android:src="@drawable/ic_ram" app:tint="@color/neon_purple"
+                    android:layout_marginBottom="10dp" />
+                <TextView style="@style/StatLabel" android:text="RAM" />
+                <TextView android:id="@+id/ramValue" style="@style/StatValue" android:text="—" android:layout_marginTop="2dp" android:textSize="18sp" />
+                <TextView android:id="@+id/ramSub" style="@style/StatLabel" android:text="" android:layout_marginTop="4dp" android:textAllCaps="false" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Stat grid: Battery / GPU -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:id="@+id/cardBattery"
+                style="@style/GlassCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:orientation="vertical">
+
+                <ImageView android:layout_width="22dp" android:layout_height="22dp"
+                    android:src="@drawable/ic_battery" app:tint="@color/status_normal"
+                    android:layout_marginBottom="10dp" />
+                <TextView style="@style/StatLabel" android:text="Battery" />
+                <TextView android:id="@+id/batteryValue" style="@style/StatValue" android:text="—%" android:layout_marginTop="2dp" />
+                <TextView android:id="@+id/batterySub" style="@style/StatLabel" android:text="" android:layout_marginTop="4dp" android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cardGpu"
+                style="@style/GlassCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:orientation="vertical">
+
+                <ImageView android:layout_width="22dp" android:layout_height="22dp"
+                    android:src="@drawable/ic_performance" app:tint="@color/neon_magenta"
+                    android:layout_marginBottom="10dp" />
+                <TextView style="@style/StatLabel" android:text="GPU" />
+                <TextView android:id="@+id/gpuValue" style="@style/StatValue" android:text="N/A" android:layout_marginTop="2dp" />
+                <TextView style="@style/StatLabel" android:text="best-effort" android:layout_marginTop="4dp" android:textAllCaps="false" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Thermal detail card -->
+        <LinearLayout
+            android:id="@+id/cardThermal"
+            style="@style/GlassCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView android:layout_width="22dp" android:layout_height="22dp"
+                    android:src="@drawable/ic_thermal" app:tint="@color/status_warm" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    style="@style/StatLabel"
+                    android:text="Thermal" />
+
+                <TextView
+                    android:id="@+id/thermalTempValue"
+                    android:textColor="@color/text_primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—°C" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Boost button -->
+        <TextView
+            android:id="@+id/boostButton"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_boost_button"
+            android:gravity="center"
+            android:text="@string/boost_game"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
